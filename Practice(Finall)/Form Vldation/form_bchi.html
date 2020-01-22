@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dekho Zraa..!</title>
+</head>
+<body>
+<h2 class="a"><b>Registartion Form</b></h2>
+<table>
+	<tr>
+		<td>First Name:</td>
+		<td><input type="text" id="fname"></td>
+		<td id="fview"></td>
+	</tr>
+	<tr>
+		<td>Last Name:</td>
+		<td><input type="text" id="lname"></td>
+		<td id="lview"></td>
+	</tr>
+	<tr>
+		<td>State:</td>
+		<td><select id="choose">
+		<option>PLEASE     CHOOSE</option>
+		<option>Punjab</option>
+		<option>Himachal</option>
+		<option>J&K</option>
+		<option>Uttrakhand</option></select></td>
+		<td id="sview"></td>
+	</tr>  
+	<tr>
+		<td>Email:</td>
+		<td><input type="text" id="mail"></td>
+		<td id="mview"></td>
+	</tr>
+	<tr>
+		<td>Mobile No:</td>
+		<td><input type="text" id="mbo"></td>
+		<td id="nview"></td>
+	</tr>
+	<tr>
+		<td>User ID:</td>
+		<td><input type="text" id="uid"></td>
+		<td id="uview"></td>
+	</tr>
+	<tr>
+		<td>Password:</td>
+		<td><input type="password" id="pwd"></td>
+		<td id="pview"></td>
+	</tr>
+	<tr>
+		<td>Confirm Password:</td>
+		<td><input type="password" id="cpwd"></td>
+		<td id="cview"></td>
+	</tr>
+	<tr>
+		<td><button onclick="formvalidate()">Create</button></td>
+		<td colspan="2" id="cmpt"></td>
+	</tr>
+
+<script type="text/javascript">
+	
+	var a=0;
+	var b=0;
+	var c=0;
+	var d=0;
+	var e=0;
+	var f=0;
+	var g=0;
+	var h=0;
+
+ function formvalidate()
+ {
+ 	var fexpr=/^[A-Za-z]+$/;
+ 	if(fname.value.length==0)
+ 	{
+ 	
+ 		document.getElementById("fview").innerHTML='<font color="red">Please Enter Your First Name..!';
+
+ 	}
+ 	else
+ 	{
+ 		if(fname.value.match(fexpr))
+ 		{document.getElementById("fview").innerHTML='OK.!';
+ 		a=1;}
+ 		else
+ 		{
+ 			document.getElementById("fview").innerHTML='<font color="blue">Please Enter Valid First Name..!';
+ 		}
+ 	}
+ 	var lexpr=/^[A-Za-z]+$/;
+ 	if(lname.value.length==0)
+ 	{
+ 	
+ 		document.getElementById("lview").innerHTML='<font color="red">Please Enter Your Last Name..!';
+
+ 	}
+ 	else
+ 	{
+ 		if(lname.value.match(lexpr)){
+ 		document.getElementById("lview").innerHTML='OK..!';
+ 		b=1;}
+ 		else
+ 		{
+ 			document.getElementById("lview").innerHTML='<font color="blue">Please Enter Valid Last Name..!';
+ 		}
+ 	}
+ 	if(choose.value=="PLEASE CHOOSE")
+ 	{
+ 	
+ 		document.getElementById("sview").innerHTML='<font color="red">Please select a State from the drop down menu..!';
+
+ 	}
+ 	else
+ 	{
+ 		document.getElementById("sview").innerHTML='OK..!';
+ 		h=1;
+ 	}
+ 	var mailexpr=/^[\w\.\+]+\@[0-9a-zA-Z\.\-]+\.[0-9a-zA-Z]{2,4}$/;
+ 	if(mail.value.length==0)
+ 	{
+ 		document.getElementById("mview").innerHTML='<font color="red">Please Enter Your Email Id..!';
+ 	}
+ 	else
+ 	{
+ 		if(mail.value.match(mailexpr))
+ 		{
+ 			document.getElementById("mview").innerHTML='OK.!';
+ 			c=1;
+ 		}
+ 		else
+ 		{
+ 			document.getElementById("mview").innerHTML='<font color="red">Please Enter Valid email.!';	
+ 		}
+ 	}
+ 	var mobexpr=/^[+]{1}[0-9]{2}[-]{1}[0-9]{10}$/;
+ 	if(mbo.value.length==0)
+ 	{
+ 		document.getElementById("nview").innerHTML='<font color="red">Please Enter Your Mobile No..!';
+ 	}
+ 	else
+ 	{
+ 		if(mbo.value.match(mobexpr))
+ 		{
+ 			document.getElementById("nview").innerHTML='OK.!';
+ 			g=1;
+ 		}
+ 		else
+ 		{
+ 			document.getElementById("nview").innerHTML='<font color="red">Please Enter Valid Mobile Number.!';	
+ 		}
+ 	}
+ 	if(uid.value.length==0)
+ 	{
+ 	
+ 		document.getElementById("uview").innerHTML='<font color="red">Please Enter Your USER name...!';
+
+ 	}
+ 	else
+ 	{
+ 		if(uid.value.length>=6&&uid.value.length<=10)
+ 		{
+ 			document.getElementById("uview").innerHTML='OK..!';
+ 			d=1;
+ 		}
+ 		else	
+ 		{
+ 			document.getElementById("uview").innerHTML='<font color="red">User Id must be between 6 to 10 Characters..!';
+ 		}
+	}
+ 	if(pwd.value.length==0)
+ 	{
+ 	
+ 		document.getElementById("pview").innerHTML='<font color="red">Please Enter Your Password..!';
+
+ 	}
+ 	else
+ 	{
+ 		document.getElementById("pview").innerHTML='OK..!';
+ 		e=1;
+ 	}
+ 	if(cpwd.value.length==0)
+ 	{
+ 	
+ 		document.getElementById("cview").innerHTML='<font color="red">Please ReEnter Your Password..!';
+
+ 	}	
+ 	else
+ 	{
+ 		if(cpwd.value==pwd.value)
+ 		{
+ 			document.getElementById("cview").innerHTML='OK..!';
+ 			f=1;
+ 		}		
+ 		else
+ 		{
+ 			document.getElementById("cview").innerHTML='<font color="red">Password dont match..!';
+ 		}
+ 	}
+
+ 	if(a==1&&b==1&&c==1&&d==1&&e==1&&f==1&&g==1&&h==1)
+ 	{
+ 		document.getElementById("cmpt").innerHTML='All the data you entered is correct..!!!';
+ 	}
+ 	else
+ 	{
+ 		document.getElementById("cmpt").innerHTML=' ';
+ 	}
+ 	
+ }
+</script>	 
+</body>
+</html>
